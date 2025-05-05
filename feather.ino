@@ -47,6 +47,13 @@ void send_can() {
   for (int i = 0; i < 1000; i++) {
     CAN.beginPacket(0x641); 
     CAN.write(1);  
+    CAN.write(0);  
+    CAN.write(0);  
+    CAN.write(0);  
+    CAN.write(0);  
+    CAN.write(0);  
+    CAN.write(0);  
+    CAN.write(0);  
     CAN.endPacket(); 
     delay(5); 
   }

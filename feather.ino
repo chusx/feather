@@ -23,7 +23,7 @@ void setup() {
 
   if (!CAN.begin(500000)) {
     Serial.println("Starting CAN failed!");
-    while (1) delay(10);
+    while(1) delay(10);
   }
 
   Serial.println("Starting CAN!");
@@ -33,9 +33,9 @@ void setup() {
 void loop() {
   unsigned long msec = millis();
 
-  if ( (msec - msec_last) > FIVE_MIN)  {
+  if ((msec - msec_last) > FIVE_MIN)  {
     msec_last = msec;
-    Serial.println (count);
+    Serial.println(count);
     send_can();
     count += 1;
   }

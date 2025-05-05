@@ -45,7 +45,7 @@ void send_can() {
   digitalWrite(13, HIGH); 
   Serial.print("Sending packet ... ");
   for (int i = 0; i < 1000; i++) {
-    CAN.beginPacket(0x641); 
+    CAN.beginPacket(0x281); 
     CAN.write(1);  
     CAN.write(0);  
     CAN.write(0);  

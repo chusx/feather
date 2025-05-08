@@ -18,8 +18,10 @@ void setup() {
   digitalWrite(6, LOW);
 
   pinMode(PIN_CAN_STANDBY, OUTPUT);
-  digitalWrite(PIN_CAN_STANDBY, false); // turn off STANDBY
+  digitalWrite(PIN_CAN_STANDBY, true); 
   pinMode(PIN_CAN_BOOSTEN, OUTPUT);
+  digitalWrite(PIN_CAN_BOOSTEN, false); 
+
 
   if (!CAN.begin(500000)) {
     Serial.println("Starting CAN failed!");
@@ -45,6 +47,8 @@ void send_can() {
   
   digitalWrite(13, HIGH); 
   digitalWrite(PIN_CAN_BOOSTEN, true); // turn on booster
+  digitalWrite(PIN_CAN_STANDBY, false); // turn off standby
+
   Serial.print("Sending packet ... ");
   for (int i = 0; i < 1000; i++) {
     CAN.beginPacket(0x281); 
@@ -63,6 +67,7 @@ void send_can() {
   }
   digitalWrite(13, LOW); 
   digitalWrite(PIN_CAN_BOOSTEN, false); 
+  digitalWrite(PIN_CAN_STANDBY, true);
 
   Serial.println("done.");
 }

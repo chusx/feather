@@ -16,6 +16,8 @@ void setup() {
   pinMode(13, OUTPUT); // built in led pin
   pinMode(6, OUTPUT); // for an external reset button
   digitalWrite(6, LOW);
+  pinMode(PIN_NEOPIXEL_POWER, OUTPUT);
+  digitalWrite(PIN_NEOPIXEL_POWER, LOW);
 
   pinMode(PIN_CAN_STANDBY, OUTPUT);
   digitalWrite(PIN_CAN_STANDBY, true); 

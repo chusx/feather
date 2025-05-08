@@ -7,6 +7,7 @@ int count = 0;
 unsigned long msec_last;
 
 #define FIVE_MIN 300000
+#define FOUR_HOURS 14400000
 
 void setup() {
   Serial.begin(115200);

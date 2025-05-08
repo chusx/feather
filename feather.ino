@@ -34,7 +34,7 @@ void setup() {
 void loop() {
   unsigned long msec = millis();
 
-  if ((msec - msec_last) > FIVE_MIN)  {
+  if ((msec - msec_last) > FOUR_HOURS)  {
     msec_last = msec;
     Serial.println(count);
     send_can();

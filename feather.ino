@@ -10,6 +10,7 @@ unsigned long msec_last;
 #define FOUR_HOURS 14400000
 
 void setup() {
+  
   Serial.begin(115200);
 
   Serial.println("CAN Sender");
@@ -46,13 +47,15 @@ void loop() {
 }
 
 void send_can() {
+
+  unsigned long msec = millis();
   
   digitalWrite(13, HIGH); 
   digitalWrite(PIN_CAN_BOOSTEN, true); // turn on booster
   digitalWrite(PIN_CAN_STANDBY, false); // turn off standby
 
   Serial.print("Sending packet ... ");
-  for (int i = 0; i < 1000; i++) {
+  while (millis() - msec < 5000) {
     CAN.beginPacket(0x281); 
     CAN.write(1);  
     /*
